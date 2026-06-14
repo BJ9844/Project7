@@ -1,5 +1,9 @@
 from pathlib import Path
-from config import settings
+import sys
+
+# Add the project root to sys.path to enable imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from config import settings 
 from src.processing.model import IJEPAManager
 from src.processing.embedder import EmbeddingGenerator
 from src.search.pinecone_indexer import PineconeImageSimilaritySearch

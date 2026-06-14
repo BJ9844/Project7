@@ -42,10 +42,8 @@ def search_similar_images(input_img):
 
     gallery_items = []
     for path, score in results:
-        img_path = Path(path)
-        if not img_path.is_absolute():
-            img_path = settings.project_root / img_path
-
+        img_name = Path(path).name
+        img_path = settings.data_dir / "images" / img_name  
         if img_path.exists():
             gallery_items.append((str(img_path), f"Similarity: {score:.4f}"))
         else:
